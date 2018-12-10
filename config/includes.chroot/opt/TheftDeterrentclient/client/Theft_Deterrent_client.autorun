@@ -1,0 +1,67 @@
+#! /bin/sh
+sleep 15
+apppath=/opt/TheftDeterrentclient/client
+startup_dir=.config/autostart
+extension_base=.local/share/gnome-shell/extensions
+appfile=TheftDeterrentclient
+appstatusfile=Theft_Deterrent_client_statusicon.app
+desktop_file=theftdeterrentclient.desktop
+extension_dir=TheftDeterrent_client\@intel.com
+ishidden=$1
+
+hideflag="--hide"
+if [ "x${ishidden}" = "xshow" ] ; then
+    hideflag=""
+elif [ "x${ishidden}" = "xhide" ] ; then
+    hideflag="--hide"
+fi
+
+fn_execute()
+{
+    chmod +x ${apppath}/${appfile} > /dev/null 2>&1
+
+    #LANG=C nohup gnome-shell --replace > /dev/null 2>&1
+
+    sleep 5
+    LC_ALL=C LANG=C ${apppath}/${appfile} ${hideflag} > /dev/null 2>&1
+    #LC_ALL=C LANG=C ${apppath}/${appstatusfile} > /dev/null 2>&1
+}
+
+fn_register()
+{
+    current_date=`LANG=C date +%Y_%m_%d_%H_%M_%S_Theft_Dettent_client_AutoRun`
+    todaylog="/tmp/${current_date}.log"
+    touch $todaylog
+    
+    home_folder=$(eval echo ~${SUDO_USER})
+
+    mkdir -p ${home_folder}/${startup_dir} > /dev/null 2>&1
+    rm -f ${home_folder}/${startup_dir}/${desktop_file} > /dev/null 2>&1
+    ln -s ${apppath}/${desktop_file} ${home_folder}/${startup_dir}/${desktop_file} > /dev/null 2>&1
+
+    #mkdir -p ${home_folder}/${extension_base} > /dev/null 2>&1
+    #rm -fr ${home_folder}/${extension_base}/${extension_dir} > /dev/null 2>&1
+    #cp -fr ${apppath}/extensions/${extension_dir} ${home_folder}/${extension_base} > /dev/null 2>&1
+
+    # Register extension
+    _existext=`LANG=C gsettings get org.gnome.shell enabled-extensions 2>&1 | grep -v grep | grep ${extension_dir}`
+    _list_m=`LANG=C gsettings get org.gnome.shell enabled-extensions 2>&1 | cut -d'[' -f 2 | cut -d']' -f 1 | sed "s/'${extension_dir}', //" | sed "s/'${extension_dir}'//"`
+    _list_l=`LANG=C gsettings get org.gnome.shell enabled-extensions 2>&1 | cut -d'[' -f 1`
+    _list_r=`LANG=C gsettings get org.gnome.shell enabled-extensions 2>&1 | cut -d']' -f 2`
+
+    if [ "x${_existext}" = "x" ] ; then
+        if [ "x${_oldlist}" = "x" ] ; then
+            _newlist="${_list_l}['${extension_dir}']${_list_r}"
+        else
+            _newlist="${_list_l}[${_list_m}, '${extension_dir}']${_list_r}"
+        fi
+        _newlist=`echo $_newlist | sed "s/\[ ,/\[/" | sed "s/, \]/\]/" | sed "s/, ,/,/g" | sed "s/@as //"`
+        LANG=C nohup gsettings set org.gnome.shell enabled-extensions "${_newlist}" > /dev/null 2>&1 &
+    fi
+
+    # Ubuntu support
+    LANG=C nohup gsettings set com.canonical.Unity.Panel systray-whitelist "['all']" > /dev/null 2>&1 &
+}
+
+fn_register
+fn_execute
