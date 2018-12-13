@@ -7,3 +7,7 @@ config/build
 config/chroot
 config/common
 config/source
+.build/
+chroot
+cache/
+.lock

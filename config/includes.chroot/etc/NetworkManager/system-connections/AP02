@@ -2,7 +2,6 @@
 id=AP02
 uuid=23a52037-7d7f-23bc-4e7f-c902ee334123
 type=wifi
-interface-name=wlp1s0
 
 [wifi]
 ssid=AP02

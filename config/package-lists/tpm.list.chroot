@@ -10,6 +10,7 @@ sudo
 locales
 bash-completion
 firmware-iwlwifi
+firmware-realtek
 adwaita-icon-theme
 huayra-icon-theme-liso
 gnome-keyring
