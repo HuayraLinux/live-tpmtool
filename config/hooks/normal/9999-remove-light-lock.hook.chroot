@@ -1,0 +1,3 @@
+#!/bin/bash
+
+apt-get remove --purge -y --force-yes light-locker

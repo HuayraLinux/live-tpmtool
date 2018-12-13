@@ -20,5 +20,11 @@ ntpdate
 xfce4-notifyd
 libglib2.0-bin
 less
+firefox-installer
+ncdu
+htop
+net-tools
+wireless-tools
+xfce4-taskmanager
 
 
