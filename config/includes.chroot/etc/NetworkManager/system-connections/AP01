@@ -7,7 +7,7 @@ type=wifi
 ssid=AP01
 mode=infrastructure
 
-[ipv]
+[ipv4]
 dns-search=
 method=auto
 
