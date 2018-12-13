@@ -12,4 +12,6 @@ chroot
 chroot.*
 cache/
 .lock
+binary
+live-image-amd64*
 
