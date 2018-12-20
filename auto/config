@@ -13,7 +13,7 @@ set -e
     --apt-options '--allow-unauthenticated -y' \
     --apt-recommends false \
     --apt-source-archives false \
-    --architectures amd64 \
+    --architectures i386 \
     --archive-areas 'main contrib non-free' \
     --keyring-packages 'debian-archive-keyring huayra-archive-keyring' \
     --binary-images iso-hybrid \
@@ -26,6 +26,7 @@ set -e
     --iso-volume 'Huayra GNU/Linux' \
     --initsystem systemd \
     --linux-packages "linux-image linux-headers" \
+    --linux-flavours "686-pae" \
     --zsync false \
     --loadlin false \
     --win32-loader false \

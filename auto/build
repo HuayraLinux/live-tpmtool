@@ -6,10 +6,10 @@ set -e
 BUILD_VERSION="1.0"
 
 lb build noauto "${@}" 2>&1 | tee build.log
-if [ -f live-image-amd64.hybrid.iso ]; then
-  mv live-image-amd64.hybrid.iso huayra-tpmtool-$BUILD_VERSION.iso
-  md5sum huayra-tpmtool-$BUILD_VERSION.iso > huayra-tpmtool-$BUILD_VERSION.iso.md5
-  cp huayra-tpmtool-$BUILD_VERSION.iso* /var/www/html/tpm
+if [ -f live-image-i386.hybrid.iso ]; then
+  mv live-image-i386.hybrid.iso huayra-tpmtool-$BUILD_VERSION-i386.iso
+  md5sum huayra-tpmtool-$BUILD_VERSION-i386.iso > huayra-tpmtool-$BUILD_VERSION-i386.iso.md5
+  cp huayra-tpmtool-$BUILD_VERSION-i386.iso* /var/www/html/tpm
 
 else
     echo "#################### ERROR AL GENERAR LA IMANGEN ########################"
