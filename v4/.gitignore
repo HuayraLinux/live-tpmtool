@@ -13,6 +13,9 @@ chroot.*
 cache/
 .lock
 binary
+<<<<<<< HEAD:v4/.gitignore
 live-image-amd64*
+=======
+>>>>>>> primaria:.gitignore
 live-image-i386*
 

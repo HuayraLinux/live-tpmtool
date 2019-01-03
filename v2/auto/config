@@ -1,0 +1,42 @@
+#!/bin/bash
+
+if [ -z "$CACHER" ]; then
+  MIRROR="http://deb.debian.org/debian/"
+  MIRROR_SECURITY="http://security.debian.org/"
+else
+  MIRROR="http://$CACHER/deb.debian.org/debian/"
+  MIRROR_SECURITY="http://$CACHER/security.debian.org/"
+fi
+set -e
+    lb config noauto \
+    --apt apt \
+    --apt-options '--allow-unauthenticated -y' \
+    --apt-recommends false \
+    --apt-source-archives false \
+    --architectures i386 \
+    --archive-areas 'main contrib non-free' \
+    --keyring-packages 'debian-archive-keyring huayra-archive-keyring' \
+    --binary-images iso-hybrid \
+    --debian-installer false \
+    --checksums md5 \
+    --debug \
+    --distribution stretch \
+    --iso-application 'Huayra GNU/Linux - TPM Tool' \
+    --iso-publisher 'Conectar Igualdad; http://www.educ.ar/; equipohuayra@gmail.com' \
+    --iso-volume 'Huayra GNU/Linux' \
+    --initsystem systemd \
+    --linux-packages "linux-image linux-headers" \
+    --linux-flavours "686-pae" \
+    --zsync false \
+    --loadlin false \
+    --win32-loader false \
+    --mirror-bootstrap $MIRROR \
+    --parent-mirror-chroot $MIRROR \
+    --parent-mirror-chroot-security $MIRROR_SECURITY \
+    --mirror-debian-installer $MIRROR \
+    --security true \
+    --updates true \
+    --firmware-binary true \
+    --firmware-chroot true \
+    --uefi-secure-boot disabled
+    "${@}"
