@@ -21,7 +21,7 @@ set -e
     --checksums md5 \
     --debug \
     --distribution stretch \
-    --iso-application 'Huayra GNU/Linux - TPM Tool' \
+    --iso-application 'Huayra GNU/Linux - TPM Tool TPM4' \
     --iso-publisher 'Conectar Igualdad; http://www.educ.ar/; equipohuayra@gmail.com' \
     --iso-volume 'Huayra GNU/Linux' \
     --initsystem systemd \
