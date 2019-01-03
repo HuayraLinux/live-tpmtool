@@ -1,0 +1,21 @@
+*.log
+*.iso
+*.md5
+config/binary
+config/bootstrap
+config/build
+config/chroot
+config/common
+config/source
+.build/
+chroot
+chroot.*
+cache/
+.lock
+binary
+<<<<<<< HEAD:v4/.gitignore
+live-image-amd64*
+=======
+>>>>>>> primaria:.gitignore
+live-image-i386*
+

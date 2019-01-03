@@ -13,20 +13,19 @@ set -e
     --apt-options '--allow-unauthenticated -y' \
     --apt-recommends false \
     --apt-source-archives false \
-    --architectures i386 \
+    --architectures amd64 \
     --archive-areas 'main contrib non-free' \
     --keyring-packages 'debian-archive-keyring huayra-archive-keyring' \
     --binary-images iso-hybrid \
     --debian-installer false \
     --checksums md5 \
     --debug \
-    --distribution stretch \
+    --distribution jessie \
     --iso-application 'Huayra GNU/Linux - TPM Tool' \
     --iso-publisher 'Conectar Igualdad; http://www.educ.ar/; equipohuayra@gmail.com' \
     --iso-volume 'Huayra GNU/Linux' \
     --initsystem systemd \
     --linux-packages "linux-image linux-headers" \
-    --linux-flavours "686-pae" \
     --zsync false \
     --loadlin false \
     --win32-loader false \
