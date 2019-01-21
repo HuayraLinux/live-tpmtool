@@ -24,8 +24,10 @@ sudo
 task-xfce-desktop
 unzip
 wireless-tools
+xdg-user-dirs
 xfce4-notifyd
 xfce4-taskmanager
 xfce4-terminal
 xserver-xorg
+zenity
 zip

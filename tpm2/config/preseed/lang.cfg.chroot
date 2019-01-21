@@ -1,2 +1,2 @@
-locales default_environment_locale es.utf-8
-locales locales_to_be_generated es.utf-8
+locales default_environment_locale select es_AR.UTF-8
+locales locales_to_be_generated select es_AR.UTF-8

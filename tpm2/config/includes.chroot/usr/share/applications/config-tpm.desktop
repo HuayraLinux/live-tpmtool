@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Config TPM
+Description=Configuracion del Agente de TPM
+Icon=preferences-system-network
+Exec=sudo config-tpm
+Type=Application
+Categories=System;Huayra
+

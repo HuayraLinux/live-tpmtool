@@ -1,0 +1,16 @@
+#!/bin/bash
+
+list=""
+echo "Obteniendo archivos de configuracion"
+for p in `find /etc/theftdeterrent/servers/ -name '*.ini' -exec basename {} \;`; do
+    list="$list $p"
+    echo "$p"
+done
+
+s=`zenity --list --title="Configurar servidor de TPM"  --column "Provincia" $list`
+if [ $? == 0 ]; then
+    echo "Seleccionado: $s"
+    cp /etc/theftdeterrent/TDAgent.ini /etc/theftdeterrent/TDAgent.ini.back
+    cp /etc/theftdeterrent/servers/$s /etc/theftdeterrent/TDAgent.ini
+    echo "Config-Provincia=$s" >> /etc/theftdeterrent/TDAgent.ini
+fi
