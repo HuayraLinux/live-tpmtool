@@ -1,0 +1,3 @@
+#!/bin/bash
+
+apt-get install -y -t jessie-backports live-boot live-boot-initramfs-tools

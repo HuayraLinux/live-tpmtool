@@ -3,3 +3,4 @@
 set -e
 
 dpkg-reconfigure -p high locales
+update-locale LANG=es_AR.UTF-8

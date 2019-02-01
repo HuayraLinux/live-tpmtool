@@ -1,4 +1,5 @@
 adwaita-icon-theme
+aufs-tools
 bash-completion
 firefox-installer
 firmware-iwlwifi
@@ -22,6 +23,7 @@ ntpdate
 ssh
 sudo
 task-xfce-desktop
+unionfs-fuse
 unzip
 wireless-tools
 xdg-user-dirs
