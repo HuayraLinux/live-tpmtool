@@ -1,5 +1,5 @@
 #! /bin/sh
-sleep 15
+sleep 10
 apppath=/opt/TheftDeterrentclient/client
 startup_dir=.config/autostart
 extension_base=.local/share/gnome-shell/extensions

@@ -1,3 +1,4 @@
 #!/bin/bash
 
-apt-get install -y -t jessie-backports live-boot live-boot-initramfs-tools
+apt-get install -y -t jessie-backports live-boot live-boot-initramfs-tools xserver-xorg-video-intel
+

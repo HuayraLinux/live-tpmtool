@@ -1,0 +1,7 @@
+[Desktop Entry]
+name=tpm-monitor
+Type=Application
+Terminal=true
+Exec=gjs /home/usuario/tpm-monitor.js
+Icon=mc
+Dscription=TPM Monitor
