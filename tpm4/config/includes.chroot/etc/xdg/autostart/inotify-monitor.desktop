@@ -1,7 +1,0 @@
-[Desktop Entry]
-name=inotify-monitor
-Type=Application
-Terminal=true
-Exec=/home/usuario/inotify-monitor.sh
-Icon=mc
-Dscription=TPM Monitor

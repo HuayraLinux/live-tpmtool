@@ -1,0 +1,7 @@
+#!/bin/bash
+echo -e "\nActivar next-boot EFI efibootmgr"
+
+CUR=`efibootmgr |grep BootCurrent | cut -d " " -f 2`
+efibootmgr -n $CUR
+
+echo -e "BootCurrent $CUR"
