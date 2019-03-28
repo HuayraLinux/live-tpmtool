@@ -66,9 +66,9 @@ function TDInfoChanged(proxy, sender, msg)
     count = count + 1;
 
     if (msg[0].message.indexOf("2020") !== -1) {
-        //aviso.show();
+        aviso.show();
         print ("Certificado aplicado. Apagando el equipo");
-        GLib.spawn_command_line_sync('sudo poweroff');
+        //GLib.spawn_command_line_sync('sudo poweroff');
     }
     else if (count >= 4) {
         print ("Reiniciando para aplicar certificado.");

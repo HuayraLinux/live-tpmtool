@@ -1,0 +1,6 @@
+#!/bin/bash
+echo -e "Build MEI module"
+cd /opt/mei
+make
+cp *.ko /lib/modules/$(uname -r)/kernel/drivers/misc/mei/
+depmod -a
