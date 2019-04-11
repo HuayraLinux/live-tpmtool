@@ -30,6 +30,8 @@ mousepad
 ssh
 make
 file
+psutils
+dbus-x11
 
 
 
