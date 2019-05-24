@@ -66,13 +66,15 @@ function TDInfoChanged(proxy, sender, msg)
     count = count + 1;
 
     if (msg[0].message.indexOf("2020") !== -1) {
-        GLib.spawn_command_line_sync('tput setab 2 & figlet "OK: 2020"');
-        //aviso.show();
+        let [res, out] = GLib.spawn_command_line_sync('figlet "OK: 2020"');
+        print(out);
+        aviso.show();
         //print ("Certificado aplicado. Apagando el equipo");
         //GLib.spawn_command_line_sync('sudo poweroff');
     }
     else {
-        GLib.spawn_command_line_sync('tput setab 1 & figlet "MAL: ' + msg[0].message + '"');
+        let [res, out] = GLib.spawn_command_line_sync('ERROR: ' + msg[0].message + '"');
+        print(out);
         //print ("Reiniciando para aplicar certificado.");
         //GLib.spawn_command_line_sync('sudo reboot');
     }
@@ -83,7 +85,7 @@ let aviso = new Gtk.MessageDialog ({
     modal: true,
     buttons: Gtk.ButtonsType.OK,
     message_type: Gtk.MessageType.WARNING,
-    text: "Certificado aplicado, el equipo se apagará." });
+    text: "Certificado Correcto, el equipo se apagará." });
 
 aviso.connect('response', (this, _response_cb.bind(this)));
 
