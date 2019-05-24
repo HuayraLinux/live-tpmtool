@@ -66,13 +66,15 @@ function TDInfoChanged(proxy, sender, msg)
     count = count + 1;
 
     if (msg[0].message.indexOf("2020") !== -1) {
-        aviso.show();
-        print ("Certificado aplicado. Apagando el equipo");
+        GLib.spawn_command_line_sync('tput setab 2 & figlet "OK: 2020"');
+        //aviso.show();
+        //print ("Certificado aplicado. Apagando el equipo");
         //GLib.spawn_command_line_sync('sudo poweroff');
     }
-    else if (count >= 4) {
-        print ("Reiniciando para aplicar certificado.");
-        GLib.spawn_command_line_sync('sudo reboot');
+    else {
+        GLib.spawn_command_line_sync('tput setab 1 & figlet "MAL: ' + msg[0].message + '"');
+        //print ("Reiniciando para aplicar certificado.");
+        //GLib.spawn_command_line_sync('sudo reboot');
     }
 
 }
